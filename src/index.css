@@ -74,8 +74,44 @@ h6 {
   isolation: isolate;
 }
 
+body {
+  background-color: #100b41;
+  font-family: "Inter", system-ui, sans-serif;
+  max-width: 1600px;
+  margin: 0 auto;
+  color: #f0f0f0;
+}
+
 .pokemon-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+  justify-content: center;
+  gap: 32px;
+  padding: 16px;
+  margin: 0 auto;
+}
+
+.pokemon-card {
+  background-color: rgb(14, 14, 14);
+  border: 5px solid rgb(43, 202, 255);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.pokemon-name {
+  margin: 0 auto;
+  color: #f0f0f0;
+  text-transform: capitalize;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 16px;
 }

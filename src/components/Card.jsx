@@ -1,8 +1,8 @@
 export default function Card({ name, image, handleClick }) {
   return (
-    <div onClick={handleClick}>
+    <div className="pokemon-card" onClick={handleClick}>
       <img src={image} alt={name} />
-      <p>{name}</p>
+      <p className="pokemon-name">{name}</p>
     </div>
   );
 }

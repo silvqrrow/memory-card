@@ -55,18 +55,27 @@ function App() {
   );
 
   return (
-    <div className="pokemon-grid">
-      {pokemon.map((pokemon) => {
-        return (
-          <Card
-            handleClick={handleCardClick}
-            key={pokemon.name}
-            name={pokemon.name}
-            image={pokemon.image}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className="header">
+        <h1>Memory Card</h1>
+        <div className="scores">
+          <p>Score</p>
+          <p>Best Score</p>
+        </div>
+      </div>
+      <div className="pokemon-grid">
+        {pokemon.map((pokemon) => {
+          return (
+            <Card
+              handleClick={handleCardClick}
+              key={pokemon.name}
+              name={pokemon.name}
+              image={pokemon.image}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 }
 
