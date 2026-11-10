@@ -19,6 +19,10 @@ const POKEMON_NAMES = [
 function App() {
   const [pokemon, setPokemon] = useState([]);
 
+  function handleCardClick() {
+    setPokemon([...pokemon].sort(() => Math.random() - 0.5));
+  }
+
   useEffect(
     () => {
       const pokemonPromises = POKEMON_NAMES.map(async (name) => {
@@ -51,10 +55,15 @@ function App() {
   );
 
   return (
-    <div>
+    <div className="pokemon-grid">
       {pokemon.map((pokemon) => {
         return (
-          <Card key={pokemon.name} name={pokemon.name} image={pokemon.image} />
+          <Card
+            handleClick={handleCardClick}
+            key={pokemon.name}
+            name={pokemon.name}
+            image={pokemon.image}
+          />
         );
       })}
     </div>
