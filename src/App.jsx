@@ -18,9 +18,30 @@ const POKEMON_NAMES = [
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [clickedPokemon, setClickedPokemon] = useState([]);
 
-  function handleCardClick() {
-    setPokemon([...pokemon].sort(() => Math.random() - 0.5));
+  function handleCardClick(pokemonName) {
+    // if the pokemon has been clicked
+    if (clickedPokemon.includes(pokemonName)) {
+      // randomize the list
+      setPokemon([...pokemon].sort(() => Math.random() - 0.5));
+      // update the score if the best score was higher
+      if (currentScore > bestScore) {
+        setBestScore(currentScore);
+      }
+      // reset the current score
+      setCurrentScore(0);
+      // reset the array
+      setClickedPokemon([]);
+    } else {
+      // add the clicked pokemon to the list
+      setClickedPokemon([...clickedPokemon, pokemonName]);
+      // increment the score and randomize
+      setCurrentScore(currentScore + 1);
+      setPokemon([...pokemon].sort(() => Math.random() - 0.5));
+    }
   }
 
   useEffect(
@@ -59,15 +80,15 @@ function App() {
       <div className="header">
         <h1>Memory Card</h1>
         <div className="scores">
-          <p>Score</p>
-          <p>Best Score</p>
+          <p>Score: {currentScore}</p>
+          <p>Best Score: {bestScore}</p>
         </div>
       </div>
       <div className="pokemon-grid">
         {pokemon.map((pokemon) => {
           return (
             <Card
-              handleClick={handleCardClick}
+              handleClick={() => handleCardClick(pokemon.name)}
               key={pokemon.name}
               name={pokemon.name}
               image={pokemon.image}
