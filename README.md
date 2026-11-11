@@ -1,16 +1,36 @@
-# React + Vite
+# Memory Card
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Pokémon memory game built with React, made for [The Odin Project](https://www.theodinproject.com/lessons/node-path-react-new-memory-card).
 
-Currently, two official plugins are available:
+Click each Pokémon only once. The cards shuffle after every click, so you have to remember which ones you've already picked. Click the same one twice and your score resets.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- 12 Pokémon loaded from the [PokéAPI](https://pokeapi.co/)
+- Cards shuffle after every click
+- Current score and best score
+- Responsive grid that adjusts to your screen size
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Built with
 
-## Expanding the ESLint configuration
+- React (`useState`, `useEffect`)
+- Vite
+- CSS Grid
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run it locally
+
+```bash
+git clone git@github.com:silvqrrow/memory-card.git
+cd memory-card
+npm install
+npm run dev
+```
+
+Then open the link shown in your terminal.
+
+## What I learned
+
+- Fetching data inside `useEffect`, and how the dependency array controls when it runs
+- Using `Promise.all` to wait for several requests at once
+- Passing data down to components with props, and passing functions down so children can report clicks
+- Updating state with new arrays instead of changing the existing one
